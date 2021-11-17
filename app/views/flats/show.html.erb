@@ -1,0 +1,30 @@
+<%= render 'navbar' %>
+
+<div class="map" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200')"></div>
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-12">
+      <div class="flat-show-card">
+        <h1><%= @flat.name %></h1>
+        <p><%= @flat.address %></p>
+      </div>
+      <div class="flat-show-card">
+        <h3>A little bit more about this flat...</h3>
+        <p><%= @flat.description %></p>
+      </div>
+      <div class="flat-show-card">
+        <h3>Details</h3>
+        <div class="flex">
+          <div class="flex">
+            <i class="material-icons">people</i>
+            <p><%= @flat.number_of_guests %></p>
+          </div>
+          <div class="flex ml-1">
+            <i class="material-icons">euro_symbol</i>
+            <p><%= @flat.price_per_night %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<%= render 'navbar' %>
+
+<div class="container">
+  <h1>All our Flats (<%= @flats.count %>)</h1>
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4><%= flat.name %></h4>
+            </div>
+            <p><%= flat.address %></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons">people</i>
+                <span><%= flat.number_of_guests %></span>
+              </div>
+              <div class="flex ml-1">
+                <i class="material-icons">euro_symbol</i>
+                <span><%= flat.price_per_night %></span>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to "More info", flat_path(flat) %>
+            <%= link_to "Edit", edit_flat_path(flat), class: "text-warning ml-1" %>
+            <%= link_to "Remove", flat_path(flat),
+                         method: :delete,
+                         data: { confirm: "Delete #{flat.name}?" },
+                         class: "text-danger ml-1" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
